@@ -39,3 +39,15 @@ I just use
 ```
 go build .
 ```
+
+# Examples
+
+## Generate a typical `node_modules`
+
+That is, 300 MB of 100k javascript files :trollface:
+
+```bash
+textgen -chunk-size $((1024 * 100)) -total-size $((1024 * 1024 * 300))
+```
+
+(make sure you have a dictionary.txt in your current folder)

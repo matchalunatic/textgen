@@ -31,3 +31,11 @@ chunk size is loose, chunks can be bigger. the size of the majoration is no more
 # generate dictionary
 
 just run fetch-dictionary.sh. You will need curl and awk and /bin/sh and sort.
+
+# building
+
+I just use
+
+```
+go build .
+```

@@ -27,3 +27,7 @@ lines are \n separated
 # precision
 
 chunk size is loose, chunks can be bigger. the size of the majoration is no more than the size of tthe longest element in the list, because I don't check the size of an element before appending it. Because: speed.
+
+# generate dictionary
+
+just run fetch-dictionary.sh. You will need curl and awk and /bin/sh and sort.

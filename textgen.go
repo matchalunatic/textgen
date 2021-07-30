@@ -14,10 +14,6 @@ import (
 )
 
 func main() {
-	words, err := ioutil.ReadFile("dictionary.txt")
-	if err != nil {
-		panic(fmt.Errorf("Missing dictionary.txt - how can I proceed???"))
-	}
 	var chunkSize int
 	var totalSize int
 	var intSeed int64
@@ -33,6 +29,10 @@ func main() {
 		intSeed = time.Now().Unix()
 	}
 	rand.Seed(intSeed)
+	words, err := ioutil.ReadFile("dictionary.txt")
+	if err != nil {
+		panic(fmt.Errorf("Missing dictionary.txt - how can I proceed???"))
+	}
 	wordary := strings.Split(string(words), "\n")
 	wordary_len := len(wordary)
 	count := totalSize / chunkSize
@@ -62,7 +62,7 @@ func genchunk(source []string, sourcelen, size int) {
 	h := sha1.New()
 	h.Write([]byte(s))
 	fn := hex.EncodeToString(h.Sum(nil))
-	dpath := fmt.Sprintf("%s/%s", fn[0:2], fn[1:3])
+	dpath := fmt.Sprintf("res-go/%s/%s", fn[0:2], fn[1:3])
 	fpath := fmt.Sprintf("%s/%s", dpath, fn)
 	os.MkdirAll(dpath, 0750)
 	ioutil.WriteFile(fpath, []byte(s), 0640)
